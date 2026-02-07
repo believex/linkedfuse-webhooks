@@ -2,6 +2,16 @@ import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
 export default async function handler(req, res) {
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -20,7 +30,7 @@ export default async function handler(req, res) {
     const { data: authData, error: authError } = await supabase.auth.admin.createUser({
       email: email,
       email_confirm: true,
-      user_metadata: { first_name: firstName }
+      user_metadata: { first_name: firstName, access_enabled: true }
     });
 
     if (authError) throw authError;
