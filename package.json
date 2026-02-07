@@ -1,0 +1,26 @@
+{
+  "name": "linkedfuse-webhooks",
+  "version": "1.0.0",
+  "description": "Serverless webhooks and signup endpoints for LinkedFuse (Beehiiv + Supabase)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/believex/linkedfuse-webhooks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/believex/linkedfuse-webhooks/issues"
+  },
+  "homepage": "https://github.com/believex/linkedfuse-webhooks#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.95.3",
+    "node-fetch": "^3.3.2",
+    "resend": "^6.9.1"
+  }
+}
