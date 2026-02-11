@@ -62,11 +62,7 @@ export default async function handler(req, res) {
         <h2>Welcome ${firstName}!</h2>
         <p>Your LinkedFuse account has been created.</p>
         <p><strong>Your Access Token:</strong> ${authData.user.id}</p>
-        <p>Download the software:</p>
-        <ul>
-          <li><a href="https://linkedfuse.com/thank-you">Windows</a></li>
-          <li><a href="https://linkedfuse.com/thank-you">Mac</a></li>
-        </ul>
+        <p>Please save this email for when the software is ready, you'll need this token for access. We will be in touch again with instructions once your early access to LinkedFuse is ready.</p>
       `
     });
 
