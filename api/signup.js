@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { firstName, email } = req.body;
+    const { firstName, email, referralSource } = req.body;
 
     // Initialize Supabase
     const supabase = createClient(
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const { data: authData, error: authError } = await supabase.auth.admin.createUser({
       email: email,
       email_confirm: true,
-      user_metadata: { first_name: firstName, access_enabled: true }
+      user_metadata: { first_name: firstName, access_enabled: true, referral_source: referralSource || null }
     });
 
     if (authError) throw authError;
